@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" , "src/assets" ] , "pkgs" : [ [ "@glennsl/bs-jest" , "/home/yamashita/open-data-reformer/workspace/node_modules/@glennsl/bs-jest" ] , [ "@rescript/react" , "/home/yamashita/open-data-reformer/workspace/node_modules/@rescript/react" ] ] , "generated" : [] }

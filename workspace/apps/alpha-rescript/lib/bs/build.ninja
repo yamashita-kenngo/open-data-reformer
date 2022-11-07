@@ -1,0 +1,18 @@
+rescript = 1
+g_finger := /home/yamashita/open-data-reformer/workspace/node_modules/@rescript/react/lib/ocaml/install.stamp
+g_finger := /home/yamashita/open-data-reformer/workspace/node_modules/@glennsl/bs-jest/lib/ocaml/install.stamp
+rule astj
+  command = /home/yamashita/open-data-reformer/workspace/node_modules/rescript/linux/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /home/yamashita/open-data-reformer/workspace/node_modules/rescript/linux/bsb_helper.exe -hash ad846826f939f82a541f4d7d099d9258 $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /home/yamashita/open-data-reformer/workspace/node_modules/rescript/linux/bsc.exe -I src/assets -I src -I /home/yamashita/open-data-reformer/workspace/node_modules/@rescript/react/lib/ocaml   -bs-package-name your-project-name -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/main.ast : astj ../../src/main.res
+o src/main.d : deps src/main.ast
+o src/main.cmj src/main.cmi ../../src/main.bs.js : mij src/main.ast
