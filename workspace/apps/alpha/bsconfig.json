@@ -1,21 +1,32 @@
 {
-  "name": "alpha",
+  "name": "vite-react-rescript-starter",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "type": "dev",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
   "reason": {
     "react-jsx": 3
   },
-  "sources": {
-    "dir" : "src",
-    "subdirs" : true
-  },
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
-  "package-specs": [{
-    "module": "commonjs",
-    "in-source": true
-  }],
-  "suffix": ".bs.js",
-  "namespace": true,
   "bs-dependencies": [
-    "reason-react"
+    "@rescript/react",
+    "@ryyppy/rescript-promise",
+    "rescript-webapi"
   ],
-  "refmt": 3
+  "bs-dev-dependencies": [
+    "rescript-vitest"
+  ]
 }
